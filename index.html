@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form Submission Page</title>
   <script>
-    // Function to refresh the page after submission
-    function refreshPage() {
+    // Function to redirect to the main form page after submission
+    function redirectToMainForm() {
       setTimeout(function() {
-        location.reload(); // Reload the page
-      }, 5000); // 5-second delay before refresh
+        // Replace this URL with the main form URL
+        window.location.href = "https://your-form-link.com"; // Main Form URL
+      }, 5000); // 5-second delay before redirect
     }
   </script>
 </head>
@@ -29,11 +30,10 @@
       if (event.origin === 'https://docs.google.com') {
         // We check if the message data includes 'formResponse', which indicates a submission
         if (event.data.includes('formResponse')) {
-          refreshPage(); // Call the refresh function
+          redirectToMainForm(); // Call the redirect function
         }
       }
     });
   </script>
 </body>
 </html>
-
