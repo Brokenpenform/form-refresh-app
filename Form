@@ -16,7 +16,7 @@
 <body>
   <h1>Google Form Submission</h1>
   
-  <!-- Embed the Google Form -->
+  <!-- Embed the correct Google Form URL -->
   <iframe src="https://forms.gle/4xoJnuKFSG6AyfJLA" width="100%" height="800px" frameborder="0">Loading…</iframe>
   
   <script>
