@@ -5,28 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form Submission Page</title>
   <script>
-    // Function to refresh the page after a submission
+    // Function to refresh the page after submission
     function refreshPage() {
       setTimeout(function() {
-        location.reload(); // Refresh the page
-      }, 5000); // 5 seconds delay before refreshing
+        location.reload(); // Reload the page
+      }, 5000); // 5-second delay before refresh
     }
   </script>
 </head>
 <body>
   <h1>Google Form Submission</h1>
   
-  <!-- Embed the correct Google Form URL -->
-  <iframe src="https://forms.gle/4xoJnuKFSG6AyfJLA" width="100%" height="800px" frameborder="0">Loading…</iframe>
-  
+  <!-- Embed the Google Form correctly with the "embedded=true" in the URL -->
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfEFsen1TASJPuuQWuJ7rlIzNWhpyrlEPqWA8HOUu39t3QWFA/viewform?embedded=true" 
+          width="640" height="856" frameborder="0" marginheight="0" marginwidth="0">
+    Loading…
+  </iframe>
+
   <script>
-    // Check if the form is submitted, based on the form's URL structure
-    // Once submitted, refresh the page
+    // Listen for any post-submission message from the iframe
     window.addEventListener('message', function(event) {
-      if (event.origin === 'https://docs.google.com' && event.data.includes('formResponse')) {
-        refreshPage(); // Call the refresh function after form submission
+      // Ensure the message is from Google Forms (check the origin)
+      if (event.origin === 'https://docs.google.com') {
+        // We check if the message data includes 'formResponse', which indicates a submission
+        if (event.data.includes('formResponse')) {
+          refreshPage(); // Call the refresh function
+        }
       }
     });
   </script>
 </body>
 </html>
+
